@@ -52,10 +52,6 @@ Macro F1 score는 multi classification을 위한 평가 지표로 클래스 별�
     
     ![image](https://aistages-api-public-prod.s3.amazonaws.com/app/Files/01555d7c-ad8a-4ce3-9692-33d2be0eaaf6.png)
 
-### Timeline
-- ex) January 10, 2024 - Start Date
-- ex) February 10, 2024 - Final submission deadline
-
 ## 2. Components
 
 ### Directory
@@ -125,17 +121,15 @@ SIDD와 같은 Open데이터 셋을 학습한 Pretrained 모델도 사용하여 
 여러 시도 끝에 데이터 전체를 회전하였음. 
 데이터 회전에는 성공하였지만 시간상 다시 이것을 가지고 모델을 학습하고 진행하는 것을 체계화 하지 못한 것은 아쉬움.
 
-- **_PPT 자료 첨부_** (e.g. Data Labeling, Data Cleaning..)
-- **_Code 첨부_** (e.g. Data Augmentation, Data Split..)
-
 ## 4. Modeling 
 ### Model descrition
-
-- **_PPT 자료 첨부_**(재성님 여러가지 모델 실험 결과)
+![efficentnet](https://raw.githubusercontent.com/SUNGMYEONGGI/image/main/cv-project-modeltest-img1.png)
+![vit_model](https://raw.githubusercontent.com/SUNGMYEONGGI/image/main/cv-project-modeltest-img3.png)
 
 ### Modeling Process
-
-- **_PPT 자료 첨부_**(재성님 여러가지 모델 실험 결과)
+![image](https://raw.githubusercontent.com/SUNGMYEONGGI/image/main/cv-project-modeltest-img2.png)
+![image](https://raw.githubusercontent.com/SUNGMYEONGGI/image/main/cv-project-modeltest-img4.png)
+![image](https://raw.githubusercontent.com/SUNGMYEONGGI/image/main/cv-project-modeltest-img5.png)
 
 ## 5. Result
 
