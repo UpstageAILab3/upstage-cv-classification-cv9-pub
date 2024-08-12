@@ -64,7 +64,7 @@ Macro F1 score는 multi classification을 위한 평가 지표로 클래스 별�
 │   └── CODE
 ├── KIM JUHYUNG
 │   └── CODE
-├── LIM DONGGEON
+├── LIM DONGGUN
 │   └── CODE
 ├── SEONG MYEONGGI
 │   └── CODE
