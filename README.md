@@ -79,10 +79,13 @@ Macro F1 score는 multi classification을 위한 평가 지표로 클래스 별�
 ![Dataset](https://raw.githubusercontent.com/SUNGMYEONGGI/image/main/Dataset%20%E1%84%80%E1%85%A2%E1%84%8B%E1%85%AD.png)
 
 ### EDA
-
+실제 데이터의 형상을 확인함
 ![image](https://github.com/user-attachments/assets/22ec492a-995b-4023-837d-26bfe8ddd6ad)
 
+데이터 레이블의 분포를 시각화 하였고, 전체 이미지 사이즈의 분포를 확인하여 Resize 기준을 잡음
+![EDA](https://github.com/user-attachments/assets/d55daaf7-a786-416d-ba88-cce9cd30e3bb)
 
+사이즈 분포를 히스토그램으로 시각화한 결과
 ![image](https://github.com/user-attachments/assets/16e00ca4-6016-440e-884a-77e4c08d678c)
 
 
