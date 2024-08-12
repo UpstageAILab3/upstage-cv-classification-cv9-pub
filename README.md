@@ -133,6 +133,15 @@ Macro F1 score는 multi classification을 위한 평가 지표로 클래스 별�
 
 - **_PPT 자료 첨부_**(재성님 여러가지 모델 실험 결과)
 
+높게 나왔던 모델
+![image](https://github.com/user-attachments/assets/d3cf3372-2138-4523-8cd9-e7cc3065aa2c)
+이미지의 사이즈가 왜곡이 적지만 학습을 위한 메모리가 차지가 매우 크고 속도가 느림을 감안해야함.
+
+높게 나왔던 모델
+![image](https://github.com/user-attachments/assets/6c3b1878-d7b3-4f13-820a-f40296db44c5)
+데이터 변형을 통해서 학습된 데이터와 테스트 데이터가 유사할수록 더 성능이 좋게 평가됨.
+
+
 ## 5. Result
 
 ### Leader Board
@@ -149,3 +158,8 @@ Macro F1 score는 multi classification을 위한 평가 지표로 클래스 별�
 ### Reference
 
 - _Insert related reference_
+
+https://www.kaggle.com/datasets/pdavpoojan/the-rvlcdip-dataset-test/data
+https://deep-learning-study.tistory.com/212
+https://dream-and-develop.tistory.com/316
+
