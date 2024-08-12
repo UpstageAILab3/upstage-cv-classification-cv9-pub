@@ -80,10 +80,29 @@ Macro F1 score는 multi classification을 위한 평가 지표로 클래스 별�
 
 ### EDA
 
-- **_PPT 자료 첨부_**
+![image](https://github.com/user-attachments/assets/22ec492a-995b-4023-837d-26bfe8ddd6ad)
+
+
+![image](https://github.com/user-attachments/assets/16e00ca4-6016-440e-884a-77e4c08d678c)
+
 
 ### Data Processing
-- (90, 45, 30도 각도 + 블러, 노이즈, 플립 등 내용추가)
+
+![image](https://github.com/user-attachments/assets/384e5edf-a952-4077-825b-3cbc6d4c82a1)
+다양한 이미지 데이터를 사전에 변형해봄으로써 테스트 이미지와 같이 만들어 보며 학습에 필요한 내용을 확인함.
+
+![image](https://github.com/user-attachments/assets/3f599871-6ae8-47a7-8796-9b41c97f1c07)
+데이터 증강, 처음에는 90도 각도만 돌리다가 각도가 다양해지면서 결과가 좋아져서 각도도 세분화 학습함.
+90 -> 45 -> 30도 각도
+블러, 노이즈, 플립을 추가하고 이후 조합된 내용으로 증강을 진행함.
+이후에도 밝기와 대비, CLAHE 효과 등을 추가하여 진행하였음.
+
+![image](https://github.com/user-attachments/assets/d97528cf-e04c-429a-9f2d-8b4f25d55a4d)
+주어진 TRAIN 데이터에도 증가하기전에 노이즈가 많은 데이터를 확인하고 제거함으로서 학습을 높였음.
+처음 주어진 데이터가 1570장이었는데 1200장으로 줄였고 학습에 조금 더 나은 성능을 만들어주었음.
+불필요하고 노이즈가 낀 데이터가 줄어듦으로 인해서 학습량이 줄어 시간도 단축되었음.
+데이터 가공에 있어서 모델학습을 위한 데이터 처리의 중요함을 생각하게 되었음.
+
 - (동건님 훈련 데이터 1200개 제작 관련 내용)
 - **_PPT 자료 첨부_** (e.g. Data Labeling, Data Cleaning..)
 - **_Code 첨부_** (e.g. Data Augmentation, Data Split..)
