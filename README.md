@@ -121,6 +121,11 @@ Macro F1 score는 multi classification을 위한 평가 지표로 클래스 별�
 여러 시도 끝에 데이터 전체를 회전하였음. 
 데이터 회전에는 성공하였지만 시간상 다시 이것을 가지고 모델을 학습하고 진행하는 것을 체계화 하지 못한 것은 아쉬움.
 
+다른 시도로는 테스트 데이터의 노이즈를 처리하였음.
+![EDA2](https://github.com/user-attachments/assets/ed7f2caf-9e24-4d4d-bd1f-8bcd8ee22989)
+원본에 가우시안 노이즈를 임의로 추가한후, 제거하는 방향으로 학습하였고
+SIDD와 같은 Open데이터 셋을 학습한 Pretrained 모델도 사용하여 노이즈 제거를 실시하였음.
+
 - **_PPT 자료 첨부_** (e.g. Data Labeling, Data Cleaning..)
 - **_Code 첨부_** (e.g. Data Augmentation, Data Split..)
 
