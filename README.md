@@ -110,9 +110,13 @@ Macro F1 score는 multi classification을 위한 평가 지표로 클래스 별�
 
 #### TEST 데이터 전처리
 
+다른 시도로는 테스트 데이터의 노이즈를 처리하였음.
+![EDA2](https://github.com/user-attachments/assets/ed7f2caf-9e24-4d4d-bd1f-8bcd8ee22989)
+원본에 가우시안 노이즈를 임의로 추가한후, 제거하는 방향으로 학습하였고
+SIDD와 같은 Open데이터 셋을 학습한 Pretrained 모델도 사용하여 노이즈 제거를 실시하였음.
+
 학습된 모델이 더 잘 작동하기 위해서 테스트 데이터 역시 전처리가 필요하고 이에 따라 분류 성능이 좌우됨.
 ![image](https://github.com/user-attachments/assets/435f0656-4bbf-4500-97b6-484caef2ddc9)
-
 
 ![image](https://github.com/user-attachments/assets/9a17f396-3f45-49b8-84a9-c97115d7de25)
 이미지 회전을 위해서 이미지 내부에서 특이점을 찾아서 반영하여 이미지를 바로 세우는 시도를 함.
@@ -120,11 +124,6 @@ Macro F1 score는 multi classification을 위한 평가 지표로 클래스 별�
 ![image](https://github.com/user-attachments/assets/8c73a0e9-b297-4e0a-b2af-2e05b79097fe)
 여러 시도 끝에 데이터 전체를 회전하였음. 
 데이터 회전에는 성공하였지만 시간상 다시 이것을 가지고 모델을 학습하고 진행하는 것을 체계화 하지 못한 것은 아쉬움.
-
-다른 시도로는 테스트 데이터의 노이즈를 처리하였음.
-![EDA2](https://github.com/user-attachments/assets/ed7f2caf-9e24-4d4d-bd1f-8bcd8ee22989)
-원본에 가우시안 노이즈를 임의로 추가한후, 제거하는 방향으로 학습하였고
-SIDD와 같은 Open데이터 셋을 학습한 Pretrained 모델도 사용하여 노이즈 제거를 실시하였음.
 
 - **_PPT 자료 첨부_** (e.g. Data Labeling, Data Cleaning..)
 - **_Code 첨부_** (e.g. Data Augmentation, Data Split..)
