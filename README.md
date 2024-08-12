@@ -141,7 +141,7 @@ SIDD와 같은 Open데이터 셋을 학습한 Pretrained 모델도 사용하여 
 
 ### Presentation
 
-- _Insert your presentaion file(pdf) link_
+- [[패스트캠퍼스] Upstage AI Lab 3기_CV 경진대회_발표자료_9조](https://drive.google.com/file/d/1rFdmwU4g3G_VGTso5HJ3L0jimqNG32cx/view?usp=sharing)
 
 ## 6. etc
 ### Reference
