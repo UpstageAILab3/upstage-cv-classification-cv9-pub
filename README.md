@@ -148,9 +148,7 @@ Macro F1 score는 multi classification을 위한 평가 지표로 클래스 별�
 ## 6. etc
 ### Reference
 
-- _Insert related reference_
-
-https://www.kaggle.com/datasets/pdavpoojan/the-rvlcdip-dataset-test/data
-https://deep-learning-study.tistory.com/212
-https://dream-and-develop.tistory.com/316
+- https://www.kaggle.com/datasets/pdavpoojan/the-rvlcdip-dataset-test/data
+- https://deep-learning-study.tistory.com/212
+- https://dream-and-develop.tistory.com/316
 
