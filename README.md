@@ -88,6 +88,7 @@ Macro F1 score는 multi classification을 위한 평가 지표로 클래스 별�
 
 ### Data Processing
 
+#### TRAIN 데이터 전처리
 ![image](https://github.com/user-attachments/assets/384e5edf-a952-4077-825b-3cbc6d4c82a1)
 다양한 이미지 데이터를 사전에 변형해봄으로써 테스트 이미지와 같이 만들어 보며 학습에 필요한 내용을 확인함.
 
@@ -97,13 +98,26 @@ Macro F1 score는 multi classification을 위한 평가 지표로 클래스 별�
 블러, 노이즈, 플립을 추가하고 이후 조합된 내용으로 증강을 진행함.
 이후에도 밝기와 대비, CLAHE 효과 등을 추가하여 진행하였음.
 
-![image](https://github.com/user-attachments/assets/d97528cf-e04c-429a-9f2d-8b4f25d55a4d)
+![image](https://github.com/user-attachments/assets/d853af4b-bae5-4013-ab77-7975c254c4d8)
+
 주어진 TRAIN 데이터에도 증가하기전에 노이즈가 많은 데이터를 확인하고 제거함으로서 학습을 높였음.
 처음 주어진 데이터가 1570장이었는데 1200장으로 줄였고 학습에 조금 더 나은 성능을 만들어주었음.
 불필요하고 노이즈가 낀 데이터가 줄어듦으로 인해서 학습량이 줄어 시간도 단축되었음.
 데이터 가공에 있어서 모델학습을 위한 데이터 처리의 중요함을 생각하게 되었음.
 
-- (동건님 훈련 데이터 1200개 제작 관련 내용)
+#### TEST 데이터 전처리
+
+학습된 모델이 더 잘 작동하기 위해서 테스트 데이터 역시 전처리가 필요하고 이에 따라 분류 성능이 좌우됨.
+![image](https://github.com/user-attachments/assets/435f0656-4bbf-4500-97b6-484caef2ddc9)
+
+
+![image](https://github.com/user-attachments/assets/9a17f396-3f45-49b8-84a9-c97115d7de25)
+이미지 회전을 위해서 이미지 내부에서 특이점을 찾아서 반영하여 이미지를 바로 세우는 시도를 함.
+
+![image](https://github.com/user-attachments/assets/8c73a0e9-b297-4e0a-b2af-2e05b79097fe)
+여러 시도 끝에 데이터 전체를 회전하였음. 
+데이터 회전에는 성공하였지만 시간상 다시 이것을 가지고 모델을 학습하고 진행하는 것을 체계화 하지 못한 것은 아쉬움.
+
 - **_PPT 자료 첨부_** (e.g. Data Labeling, Data Cleaning..)
 - **_Code 첨부_** (e.g. Data Augmentation, Data Split..)
 
