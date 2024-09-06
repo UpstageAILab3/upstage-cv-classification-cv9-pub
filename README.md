@@ -1,5 +1,4 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/FVjNDCrt)
-# Title (Please modify the title)
+# Document Type Classification | 문서 타입 분류
 ## Team
 
 | ![임동건](https://avatars.githubusercontent.com/u/125024589?v=4) | ![김주형](https://avatars.githubusercontent.com/u/95218618?v=4) | ![성명기](https://avatars.githubusercontent.com/u/104310191?v=4) | ![유정수](https://avatars.githubusercontent.com/u/50096716?v=4) | ![장재성](https://avatars.githubusercontent.com/u/165862584?v=4) |
