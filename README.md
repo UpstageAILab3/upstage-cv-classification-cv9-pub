@@ -26,6 +26,7 @@ pip install -r requirements.txt
 
 ### 평가 지표
 F1 score는 Precision과 Recall의 조화 평균을 의미합니다. 클래스마다 개수가 불균형할 때 모델의 성능을 더욱 정확하게 평가할 수 있습니다.
+
 <img src="https://aistages-api-public-prod.s3.amazonaws.com/app/Files/01555d7c-ad8a-4ce3-9692-33d2be0eaaf6.png" width="380">
 
 ### Timeline
@@ -53,59 +54,105 @@ F1 score는 Precision과 Recall의 조화 평균을 의미합니다. 클래스�
 ![Dataset](https://raw.githubusercontent.com/SUNGMYEONGGI/image/main/Dataset%20%E1%84%80%E1%85%A2%E1%84%8B%E1%85%AD.png)
 
 ### EDA
-실제 데이터의 형상을 확인함
-![image](https://github.com/user-attachments/assets/22ec492a-995b-4023-837d-26bfe8ddd6ad)
+#### 학습데이터
+![](https://github.com/SUNGMYEONGGI/image/blob/main/TrainDataset%20Image.png?raw=true)
 
-데이터 레이블의 분포를 시각화 하였고, 전체 이미지 사이즈의 분포를 확인하여 Resize 기준을 잡음
-![EDA](https://github.com/user-attachments/assets/d55daaf7-a786-416d-ba88-cce9cd30e3bb)
+#### 테스트데이터
+![](https://github.com/SUNGMYEONGGI/image/blob/main/TestDataset%20Image.png?raw=true)
 
-사이즈 분포를 히스토그램으로 시각화한 결과
-![image](https://github.com/user-attachments/assets/16e00ca4-6016-440e-884a-77e4c08d678c)
+#### 이미지 분포
+![](https://github.com/SUNGMYEONGGI/image/blob/main/%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%91%E1%85%A9.png?raw=true)
+- 데이터 레이블의 분포 시각화
+- 전체 이미지 사이즈의 분포를 확인 후 Resize 기준 잡음
 
+![](https://github.com/SUNGMYEONGGI/image/blob/main/%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5%20%E1%84%89%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8C%E1%85%B3%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%91%E1%85%A9.png?raw=true)
+- 사이즈 분포를 히스토그램으로 시각화한 결과
+- 대략 350-680 픽셀 높이와 400-750 픽셀 너비 범위에 분포
 
 ### Data Processing
-#### TRAIN 데이터 전처리
-![image](https://github.com/user-attachments/assets/384e5edf-a952-4077-825b-3cbc6d4c82a1)
-다양한 이미지 데이터를 사전에 변형해봄으로써 테스트 이미지와 같이 만들어 보며 학습에 필요한 내용을 확인함.
+#### 학습데이터 전처리
+![](https://github.com/SUNGMYEONGGI/image/blob/main/%E1%84%92%E1%85%AE%E1%86%AB%E1%84%85%E1%85%A7%E1%86%AB%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%90%E1%85%A5%20%E1%84%8C%E1%85%B3%E1%86%BC%E1%84%80%E1%85%A1%E1%86%BC%20%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%8E%E1%85%A5%E1%84%85%E1%85%B5.png?raw=true)
+- 90도 각도만 돌리다가 각도가 다양해지면서 결과가 좋아짐, 각도도 세분화 학습함.
+    - 90 -> 45 -> 30도 각도
+- 블러, 노이즈, 플립을 추가하고 이후 조합된 내용으로 증강
+- 이후 밝기와 대비, CLAHE 효과 등을 추가 진행
 
-![image](https://github.com/user-attachments/assets/3f599871-6ae8-47a7-8796-9b41c97f1c07)
-데이터 증강, 처음에는 90도 각도만 돌리다가 각도가 다양해지면서 결과가 좋아져서 각도도 세분화 학습함.
-90 -> 45 -> 30도 각도
-블러, 노이즈, 플립을 추가하고 이후 조합된 내용으로 증강을 진행함.
-이후에도 밝기와 대비, CLAHE 효과 등을 추가하여 진행하였음.
+![](https://github.com/SUNGMYEONGGI/image/blob/main/%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5%20%E1%84%8E%E1%85%AE%E1%86%A8%E1%84%89%E1%85%A9.png?raw=true)
+- 노이즈가 많은 데이터를 확인하고 제거함으로서 학습을 높임
+- 1570장에서 1200장으로 줄였고 학습에 조금 더 나은 성능을 만듦
+- 불필요하고 노이즈가 낀 데이터가 줄어듦으로 인해 학습량이 줄어 시간 줆
 
-![image](https://github.com/user-attachments/assets/d853af4b-bae5-4013-ab77-7975c254c4d8)
+#### 테스트데이터 전처리
+![](https://github.com/SUNGMYEONGGI/image/blob/main/%E1%84%83%E1%85%B5%E1%84%82%E1%85%A9%E1%84%8B%E1%85%B5%E1%84%8C%E1%85%B5%E1%86%BC.png?raw=true)
+- 가우시안 노이즈를 임의로 추가
+- 제거하는 방향으로 학습, SIDD와 같은 Open데이터 셋을 학습한 Pretrained 모델도 사용하여 노이즈 제거를 실시
 
-주어진 TRAIN 데이터에도 증가하기전에 노이즈가 많은 데이터를 확인하고 제거함으로서 학습을 높였음.
-처음 주어진 데이터가 1570장이었는데 1200장으로 줄였고 학습에 조금 더 나은 성능을 만들어주었음.
-불필요하고 노이즈가 낀 데이터가 줄어듦으로 인해서 학습량이 줄어 시간도 단축되었음.
-데이터 가공에 있어서 모델학습을 위한 데이터 처리의 중요함을 생각하게 되었음.
+![](https://github.com/SUNGMYEONGGI/image/blob/main/deskew%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC.png?raw=true)
+![](https://github.com/SUNGMYEONGGI/image/blob/main/OCR%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC.png?raw=true)
+- deskew 라이브러리 활용
+    - deskew 라이브러리로 이미지를 1차적으로 평행하게 맞춤
+    - 방향이 8가지로 줄어듦
+- OCR 라이브러리 활용
+    - 샤프닝 필터와 Non-Local Means Denoising 적용하여 이미지 전처리 후 이미지를 8가지로 돌려가면서 paddleocr 라이브러리를 통해 이미지 OCR 진행
+    - 가장 OCR이 많이 된 이미지를 올바른 이미지로 선택
+    - 결과적으로 70%가 올바르게 돌아감
 
-#### TEST 데이터 전처리
-다른 시도로는 테스트 데이터의 노이즈를 처리하였음.
-![EDA2](https://github.com/user-attachments/assets/ed7f2caf-9e24-4d4d-bd1f-8bcd8ee22989)
-원본에 가우시안 노이즈를 임의로 추가한후, 제거하는 방향으로 학습하였고
-SIDD와 같은 Open데이터 셋을 학습한 Pretrained 모델도 사용하여 노이즈 제거를 실시하였음.
-
-학습된 모델이 더 잘 작동하기 위해서 테스트 데이터 역시 전처리가 필요하고 이에 따라 분류 성능이 좌우됨.
-![image](https://github.com/user-attachments/assets/435f0656-4bbf-4500-97b6-484caef2ddc9)
-
-![image](https://github.com/user-attachments/assets/9a17f396-3f45-49b8-84a9-c97115d7de25)
-이미지 회전을 위해서 이미지 내부에서 특이점을 찾아서 반영하여 이미지를 바로 세우는 시도를 함.
-
-![image](https://github.com/user-attachments/assets/8c73a0e9-b297-4e0a-b2af-2e05b79097fe)
-여러 시도 끝에 데이터 전체를 회전하였음. 
-데이터 회전에는 성공하였지만 시간상 다시 이것을 가지고 모델을 학습하고 진행하는 것을 체계화 하지 못한 것은 아쉬움.
+![](https://github.com/SUNGMYEONGGI/image/blob/main/%E1%84%8F%E1%85%A2%E1%84%82%E1%85%B5.png?raw=true)
+- 이미지 회전을 위해 이미지 내부에서 특이점을 찾아서 반영하여 이미지를 바로 세움
+- 빈도가 높은 직선과 사각형을 기준으로 회전
 
 ## 4. Modeling 
 ### Model descrition
-![efficentnet](https://raw.githubusercontent.com/SUNGMYEONGGI/image/main/cv-project-modeltest-img1.png)
-![vit_model](https://raw.githubusercontent.com/SUNGMYEONGGI/image/main/cv-project-modeltest-img3.png)
+#### Efficentnet
+> EfficientNetb2부터 EfficientNetb7 테스트 진행했으며 높은 숫자의 모델로 갈수록 높은 해상도에 해당하는 이미지 인식 작업에 유리하며, 이번 대회의 이미지가 고해상도의 임지가 아니여서 실질적으로 높은 모델이 필요하지 않다고 판단하였음
 
-### Modeling Process
-![image](https://raw.githubusercontent.com/SUNGMYEONGGI/image/main/cv-project-modeltest-img2.png)
-![image](https://raw.githubusercontent.com/SUNGMYEONGGI/image/main/cv-project-modeltest-img4.png)
-![image](https://raw.githubusercontent.com/SUNGMYEONGGI/image/main/cv-project-modeltest-img5.png)
+> *모델링의 조건*
+> ```img_size = 224
+> LR = 1e-4
+> num_workers = 1
+> epoach = 5
+> ```
+
+<img src="/Users/seongmyeong-gi/Desktop/upstage-cv-classification-cv9-pub/img/efficientnet567.png" width="450" height="350">
+
+- Efficientbet_b5
+    - `pretrain = True`로 진행하여 초반부터 91%의 f1 score를 기록
+    - epoch 3에서 0.9914점으로 early stopping 하면서 모델 테스트 종료
+    - 해당 모델 제출 결과 0.9026 
+
+- Efficientbet_b6
+    - Efficientnet_b6부터는 `pretrained = False`로 진행
+    - epoch 5에서 0.9116 모델 테스트 종료
+    - 해당 모델로 제출하지 않고 정답데이터와 비교 했을 때 f1 score 0.75
+
+- Efficientbet_b7
+    - `pretrained = False`로 진행
+    - epoch 5에 0.8342 모델 테스트 종료
+    - 해당 모델로 제출하지 않고 정답데이터와 비교 했을 때 f1 score 0.75
+
+
+#### VIT
+> 여타 CNN 모델과는 다른 Transformer를 활용한 이미지 분류 모델이며, NLP 모델에 자주 쓰인 Transformer를 활용한 모델인 만큼 문서 분류에 활용될 수 있을 것이라 기대를 했으며 VIT의 여러가지 모델 중 3가지를 테스트 진행
+
+> *모델링의 조건*
+> ```img_size = 224
+> LR = 1e-4
+> num_workers = 1
+> epoach = 5
+> ```
+
+<img src="/Users/seongmyeong-gi/Desktop/upstage-cv-classification-cv9-pub/img/vit.png" width="450" height="350">
+
+- vit_base_patch16_224
+    - `pretrain = True`로 진행
+    - epoch 5에서 0.9802 모델 테스트 종료
+    - 해당 모델로 제출했을 때 f1 score 0.8388
+
+- vit_large_patch16_224
+    - `pretrain = True`로 진행
+    - epoch 4에 0.9800에 도달하여 모델 테스트 종료
+    - 해당 모델로 제출 f1 score 0.8844로 높은 점수를 보이나 1회 epoch에 19분 정도 소요
+
 
 ## 5. Result
 ### Public Score
@@ -121,4 +168,3 @@ SIDD와 같은 Open데이터 셋을 학습한 Pretrained 모델도 사용하여 
 - https://www.kaggle.com/datasets/pdavpoojan/the-rvlcdip-dataset-test/data
 - https://deep-learning-study.tistory.com/212
 - https://dream-and-develop.tistory.com/316
-
