@@ -1,3 +1,39 @@
+- [Document Type Classification | 문서 타입 분류](#document-type-classification--문서-타입-분류)
+    - [Team](#team)
+    - [0. Overview](#0-overview)
+        - [environment](#environment)
+        - [Requirements](#requirements)
+    - [1. Competiton Info](#1-competiton-info)
+        - [개요](#개요)
+        - [평가 지표](#평가-지표)
+        - [Timeline](#timeline)
+    - [2. Components](#2-components)
+        - [Directory](#directory)
+    - [3. Data descrption](#3-data-descrption)
+        - [Dataset overview](#dataset-overview)
+        - [EDA](#eda)
+            - [학습데이터](#학습데이터)
+            - [테스트데이터](#테스트데이터)
+            - [이미지 분포](#이미지-분포)
+        - [Data Processing](#data-processing)
+            - [학습데이터 전처리](#학습데이터-전처리)
+            - [테스트데이터 전처리](#테스트데이터-전처리)
+    - [4. Modeling](#4-modeling)
+        - [Model descrition](#model-descrition)
+            - [Efficentnet](#efficentnet)
+            - [VIT](#vit)
+    - [5. Result](#5-result)
+        - [Public Score](#public-score)
+        - [Private Score](#private-score)
+        - [Presentation](#presentation)
+    - [6. etc](#6-etc)
+       - [Reference](#reference)
+
+<br>
+
+---
+<br>
+
 # Document Type Classification | 문서 타입 분류
 ## Team
 
@@ -113,7 +149,7 @@ F1 score는 Precision과 Recall의 조화 평균을 의미합니다. 클래스�
 > epoach = 5
 > ```
 
-<img src="/Users/seongmyeong-gi/Desktop/upstage-cv-classification-cv9-pub/img/efficientnet567.png" width="450" height="350">
+<img src="img/efficientnet567.png" width="450" height="350">
 
 - Efficientbet_b5
     - `pretrain = True`로 진행하여 초반부터 91%의 f1 score를 기록
@@ -141,7 +177,7 @@ F1 score는 Precision과 Recall의 조화 평균을 의미합니다. 클래스�
 > epoach = 5
 > ```
 
-<img src="/Users/seongmyeong-gi/Desktop/upstage-cv-classification-cv9-pub/img/vit.png" width="450" height="350">
+<img src="img/vit.png" width="450" height="350">
 
 - vit_base_patch16_224
     - `pretrain = True`로 진행
